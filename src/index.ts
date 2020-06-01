@@ -1,9 +1,11 @@
 import { User } from './models/User';
 
-const user = new User({ name: 'test', age: 314 });
+const user = User.buildUser({ id: 21 });
 
 user.on('change', () => {
-  console.log('Hi there!');
+  console.log(user);
 });
 
-user.set({name: 'my new name!'});
+user.fetch();
+
+console.log(user.isAdminUser());
